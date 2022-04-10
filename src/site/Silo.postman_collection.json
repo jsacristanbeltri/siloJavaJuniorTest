@@ -1,0 +1,567 @@
+{
+	"info": {
+		"_postman_id": "922be370-5726-4aba-b2b5-1caf9b10e42a",
+		"name": "Silo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Listar articulos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"list"
+					],
+					"query": [
+						{
+							"key": "ean",
+							"value": "3333",
+							"disabled": true
+						},
+						{
+							"key": "importe",
+							"value": "10",
+							"disabled": true
+						},
+						{
+							"key": "talla",
+							"value": "L",
+							"disabled": true
+						},
+						{
+							"key": "color",
+							"value": "Verde",
+							"disabled": true
+						},
+						{
+							"key": "nombre",
+							"value": "Camiseta",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar articulo 2 JSON",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 3,\r\n    \"ean\": \"0000002\",\r\n    \"nombre\": \"Pantalon\",\r\n    \"importe\": 30.0,\r\n    \"talla\": \"XL\",\r\n    \"color\": \"Blanco\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/deleteArticulo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"deleteArticulo"
+					],
+					"query": [
+						{
+							"key": "ean",
+							"value": "3333",
+							"disabled": true
+						},
+						{
+							"key": "importe",
+							"value": "10",
+							"disabled": true
+						},
+						{
+							"key": "talla",
+							"value": "L",
+							"disabled": true
+						},
+						{
+							"key": "color",
+							"value": "Verde",
+							"disabled": true
+						},
+						{
+							"key": "nombre",
+							"value": "Camiseta",
+							"disabled": true
+						},
+						{
+							"key": "id",
+							"value": "2",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar articulo 2 Parametros",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/delete?id=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "ean",
+							"value": "3333",
+							"disabled": true
+						},
+						{
+							"key": "importe",
+							"value": "10",
+							"disabled": true
+						},
+						{
+							"key": "talla",
+							"value": "L",
+							"disabled": true
+						},
+						{
+							"key": "color",
+							"value": "Verde",
+							"disabled": true
+						},
+						{
+							"key": "nombre",
+							"value": "Camiseta",
+							"disabled": true
+						},
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update articulo 1 Parametros",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/update?ean=999&importe=100&talla=XL&color=Blanco&nombre=Zapatos&id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"update"
+					],
+					"query": [
+						{
+							"key": "ean",
+							"value": "999"
+						},
+						{
+							"key": "importe",
+							"value": "100"
+						},
+						{
+							"key": "talla",
+							"value": "XL"
+						},
+						{
+							"key": "color",
+							"value": "Blanco"
+						},
+						{
+							"key": "nombre",
+							"value": "Zapatos"
+						},
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update articulo 1 JSON",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"ean\": \"0000001\",\r\n    \"nombre\": \"Chaqueta\",\r\n    \"importe\": 35.0,\r\n    \"talla\": \"XLL\",\r\n    \"color\": \"Verde\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/updateArticulo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"updateArticulo"
+					],
+					"query": [
+						{
+							"key": "ean",
+							"value": "999",
+							"disabled": true
+						},
+						{
+							"key": "importe",
+							"value": "100",
+							"disabled": true
+						},
+						{
+							"key": "talla",
+							"value": "XL",
+							"disabled": true
+						},
+						{
+							"key": "color",
+							"value": "Blanco",
+							"disabled": true
+						},
+						{
+							"key": "nombre",
+							"value": "Zapatos",
+							"disabled": true
+						},
+						{
+							"key": "id",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mostrar articulo 2",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/listOne?id=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"listOne"
+					],
+					"query": [
+						{
+							"key": "ean",
+							"value": "3333",
+							"disabled": true
+						},
+						{
+							"key": "importe",
+							"value": "10",
+							"disabled": true
+						},
+						{
+							"key": "talla",
+							"value": "L",
+							"disabled": true
+						},
+						{
+							"key": "color",
+							"value": "Verde",
+							"disabled": true
+						},
+						{
+							"key": "nombre",
+							"value": "Camiseta",
+							"disabled": true
+						},
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mostrar articulo 1 Json",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1,\r\n    \"ean\": \"\",\r\n    \"nombre\": \"\",\r\n    \"importe\": 0,\r\n    \"talla\": \"\",\r\n    \"color\": \"\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/listOneJson",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"listOneJson"
+					],
+					"query": [
+						{
+							"key": "ean",
+							"value": "3333",
+							"disabled": true
+						},
+						{
+							"key": "importe",
+							"value": "10",
+							"disabled": true
+						},
+						{
+							"key": "talla",
+							"value": "L",
+							"disabled": true
+						},
+						{
+							"key": "color",
+							"value": "Verde",
+							"disabled": true
+						},
+						{
+							"key": "nombre",
+							"value": "Camiseta",
+							"disabled": true
+						},
+						{
+							"key": "id",
+							"value": "2",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test Excepcion Articulo no encontrado",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/listOne?id=6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"listOne"
+					],
+					"query": [
+						{
+							"key": "ean",
+							"value": "3333",
+							"disabled": true
+						},
+						{
+							"key": "importe",
+							"value": "10",
+							"disabled": true
+						},
+						{
+							"key": "talla",
+							"value": "L",
+							"disabled": true
+						},
+						{
+							"key": "color",
+							"value": "Verde",
+							"disabled": true
+						},
+						{
+							"key": "nombre",
+							"value": "Camiseta",
+							"disabled": true
+						},
+						{
+							"key": "id",
+							"value": "6"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear Articulo JSON",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ean\": \"0000004\",\r\n    \"nombre\": \"Zapatos2\",\r\n    \"importe\": 41.0,\r\n    \"talla\": \"S\",\r\n    \"color\": \"Rojo\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"add"
+					],
+					"query": [
+						{
+							"key": "ean",
+							"value": "3333",
+							"disabled": true
+						},
+						{
+							"key": "importe",
+							"value": "10",
+							"disabled": true
+						},
+						{
+							"key": "talla",
+							"value": "L",
+							"disabled": true
+						},
+						{
+							"key": "color",
+							"value": "Verde",
+							"disabled": true
+						},
+						{
+							"key": "nombre",
+							"value": "Camiseta",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test Exception Ean vacio",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ean\": \"\",\r\n    \"nombre\": \"Zapatos2\",\r\n    \"importe\": 41.0,\r\n    \"talla\": \"S\",\r\n    \"color\": \"Rojo\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"add"
+					],
+					"query": [
+						{
+							"key": "ean",
+							"value": "3333",
+							"disabled": true
+						},
+						{
+							"key": "importe",
+							"value": "10",
+							"disabled": true
+						},
+						{
+							"key": "talla",
+							"value": "L",
+							"disabled": true
+						},
+						{
+							"key": "color",
+							"value": "Verde",
+							"disabled": true
+						},
+						{
+							"key": "nombre",
+							"value": "Camiseta",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
