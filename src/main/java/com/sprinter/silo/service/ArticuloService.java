@@ -16,6 +16,8 @@ import java.util.List;
 @Service
 public class ArticuloService implements IArticuloService {
 
+
+
     @Autowired
     private IArticulo dao = new ArticuloDao();
 

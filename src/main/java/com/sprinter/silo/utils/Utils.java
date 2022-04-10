@@ -12,13 +12,14 @@ public class Utils {
      * @param articulo Recibe el artículo a chequear.
      */
     public static void comprobarArticulo(Articulo articulo){
+
         if(articulo.getEan() == null || articulo.getEan().isEmpty()){
             throw new BadRequestException("Ean inválido");
         }
         if(articulo.getNombre() == null || articulo.getNombre().isEmpty()){
             throw new BadRequestException("Nombre inválido");
         }
-        if(articulo.getImporte() == 0){
+        if(articulo.getImporte() <= 0 || esNumero(""+articulo.getImporte())){
             throw new BadRequestException("Importe inválido");
         }
         if(articulo.getColor() == null || articulo.getColor().isEmpty()){
