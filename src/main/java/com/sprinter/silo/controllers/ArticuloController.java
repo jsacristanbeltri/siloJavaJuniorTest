@@ -14,7 +14,7 @@ import java.util.List;
 public class ArticuloController {
 
     @Autowired
-    private IArticuloService service = new ArticuloService();
+    private ArticuloService service;
 
     //----------------------- Respuestas Añadir articulos ------------
 
@@ -28,7 +28,7 @@ public class ArticuloController {
      * false en el caso de detectarse algun incidente.
      */
     @RequestMapping (value = "api/add", method = RequestMethod.POST)
-    public boolean altaArticulo(@RequestBody Articulo articulo){
+    public Articulo addArticulo(@RequestBody Articulo articulo){
         return service.addArticulo(articulo);
     }
 
@@ -56,9 +56,10 @@ public class ArticuloController {
      * @param articulo Objeto tipo articulo que indica el id del artículo a listar.
      * @return devuelve un objeto articulo.
      */
+
     @RequestMapping (value = "api/listOneJson", method = RequestMethod.GET)
-    public Articulo mostrarUnArticuloJson(@RequestBody Articulo articulo){
-        return service.listarArticuloId(articulo.getId());
+    public Articulo findArticuloById(@RequestBody Articulo articulo){
+        return service.findArticuloById(articulo.getId());
     }
 
     /**
@@ -71,8 +72,8 @@ public class ArticuloController {
      */
 
     @RequestMapping (value = "api/listOne", method = RequestMethod.GET)
-    public Articulo mostrarUnArticulo(@RequestParam(value = "id")int idIn){
-        return service.listarArticuloId(idIn);
+    public Articulo findArticuloById(@RequestParam(value = "id")int idIn){
+        return service.findArticuloById(idIn);
     }
 
 
@@ -89,8 +90,8 @@ public class ArticuloController {
 
     //Por json
     @RequestMapping (value = "api/updateArticulo", method = RequestMethod.PUT)
-    public boolean updateArticuloJson(@RequestBody Articulo articulo){
-        return service.editarArticulo(articulo);
+    public Articulo updateArticulo(@RequestBody Articulo articulo){
+        return service.updateArticulo(articulo.getId(),articulo);
     }
 
     /**+
@@ -107,7 +108,7 @@ public class ArticuloController {
 
     //Por parametros
     @RequestMapping (value = "api/update", method = RequestMethod.PUT)
-    public boolean updateArticulo(
+    public Articulo updateArticulo(
                             @RequestParam(value = "id")int idIn,
                             @RequestParam(value = "ean")String eanIn,
                             @RequestParam(value = "nombre")String nombreIn,
@@ -117,7 +118,7 @@ public class ArticuloController {
                             ){
 
         Articulo articulo = new Articulo(idIn,eanIn,nombreIn,importeIn,tallaIn,colorIn);
-        return service.editarArticulo(articulo);
+        return service.updateArticulo(idIn,articulo);
     }
 
 
@@ -134,8 +135,8 @@ public class ArticuloController {
 
     //Por Json
     @RequestMapping (value = "api/deleteArticulo", method = RequestMethod.DELETE)
-    public boolean borrarArticuloJson(@RequestBody Articulo articulo){
-        return service.eliminarArticulo(articulo.getId());
+    public void deleteArticulo(@RequestBody Articulo articulo){
+        service.deleteArticulo(articulo.getId());
     }
 
     /**
@@ -145,15 +146,10 @@ public class ArticuloController {
      * @return Devuelve un booleano true en el caso de que se haya borrado correctamente
      * el artículo, o en su defecto false si se ha detectado alguna incidencia.
      */
+
     //Por parametros
     @RequestMapping (value = "api/delete", method = RequestMethod.DELETE)
-    public boolean borrarArticulo(@RequestParam(value = "id")int id){
-        return service.eliminarArticulo(id);
+    public void borrarArticulo(@RequestParam(value = "id")int id){
+        service.deleteArticulo(id);
     }
-
-
-
-
-
-
 }

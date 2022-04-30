@@ -4,22 +4,24 @@ import com.sprinter.silo.config.excepcions.NotFoundException;
 import com.sprinter.silo.dao.ArticuloDao;
 import com.sprinter.silo.dao.IArticulo;
 import com.sprinter.silo.models.Articulo;
+import com.sprinter.silo.repository.ArticuloRepository;
 import com.sprinter.silo.utils.Utils;
+import java.util.Objects;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Servicios de artículo.
  */
 @Service
+@RequiredArgsConstructor
 public class ArticuloService implements IArticuloService {
 
-
-
-    @Autowired
-    private IArticulo dao = new ArticuloDao();
+    private final ArticuloRepository articuloRepository;
 
     /**
      * Función encargada de recibir un artículo y
@@ -29,10 +31,11 @@ public class ArticuloService implements IArticuloService {
      * @return devuelve un booleano true si ha ido correcto
      * y false si ha fallado algo.
      */
+
     @Override
-    public boolean addArticulo(Articulo articulo) {
+    public Articulo addArticulo(Articulo articulo) {
         Utils.comprobarArticulo(articulo);
-        return dao.addArticulo(articulo);
+        return articuloRepository.save(articulo);
     }
 
     /**
@@ -45,10 +48,10 @@ public class ArticuloService implements IArticuloService {
      */
     @Override
     public List<Articulo> listar() {
-        List<Articulo> articulos = dao.listar();
+        List<Articulo> articulos = articuloRepository.findAll();
         if(articulos.isEmpty())
             throw new NotFoundException("No existen artículos en la base de datos");
-        return dao.listar();
+        return articulos;
     }
 
     /**
@@ -58,10 +61,12 @@ public class ArticuloService implements IArticuloService {
      * @return Devuelve un articulo, si existe. En el caso de
      * que no lo encuentre, salta una excepción.
      */
+
     @Override
-    public Articulo listarArticuloId(int id) {
+    public Articulo findArticuloById(int id) {
         if(Utils.esNumero(""+id)){
-            Articulo articulo = dao.listarArticuloId(id);
+            Optional<Articulo> articuloResponse = articuloRepository.findById(id);
+            Articulo articulo = articuloResponse.get();
             if(articulo==null)
                 throw new NotFoundException("Artículo no existe.");
             else
@@ -75,35 +80,64 @@ public class ArticuloService implements IArticuloService {
     /**
      * Función encargada de editar un artículo
      * existente en la base de datos.
-     * @param articulo recibe un objeto articulo que en el
+     * @param articuloRequest recibe un objeto articulo que en el
      * caso de que exista en la base de datos, sustituirá
      * el objeto artículo de la base de datos.
-     * @return Devuelve booleando true si lo encuentra y lo actualiza
-     * o salta exceción de artículo no encontrado.
+     * @return Devuelve el articulo actualizado
      */
+
     @Override
-    public boolean editarArticulo(Articulo articulo) {
-        Utils.comprobarArticulo(articulo);
-        if(!dao.editarArticulo(articulo))
+    public Articulo updateArticulo(int id,Articulo articuloRequest) {
+        Utils.comprobarArticulo(articuloRequest);
+        Optional<Articulo> articuloResponse = articuloRepository.findById(id);
+        Articulo articulo = articuloResponse.get();
+        if(articulo==null)
             throw new NotFoundException("Artículo no existe.");
-        else
-        return true;
+
+        if(Objects.nonNull(articuloRequest.getEan())
+            && !"".equalsIgnoreCase(articuloRequest.getEan())
+        ){
+            articulo.setEan(articuloRequest.getEan());
+        }
+
+        if(Objects.nonNull(articuloRequest.getNombre())
+                && !"".equalsIgnoreCase(articuloRequest.getNombre())
+        ){
+            articulo.setNombre(articuloRequest.getNombre());
+        }
+
+        if(Objects.nonNull(articuloRequest.getImporte())
+                && articuloRequest.getImporte()>=0
+        ){
+            articulo.setImporte(articuloRequest.getImporte());
+        }
+
+        if(Objects.nonNull(articuloRequest.getTalla())
+                && !"".equalsIgnoreCase(articuloRequest.getTalla())
+        ){
+            articulo.setTalla(articuloRequest.getTalla());
+        }
+        if(Objects.nonNull(articuloRequest.getColor())
+                && !"".equalsIgnoreCase(articuloRequest.getColor())
+        ){
+            articulo.setColor(articuloRequest.getColor());
+        }
+
+        return articuloRepository.save(articulo);
     }
 
     /**
      * Función encargada de buscar en la base de datos
      * un artículo con un id en concreto y eliminarlo.
      * @param id Recibe el id del artículo a borrar
-     * @return Devueve true si se elimina correctamente.
-     * En su defecto salta excepción de artículo no existente.
      */
+
     @Override
-    public boolean eliminarArticulo(int id) {
-        if(!dao.eliminarArticulo(id))
-            throw new NotFoundException("Artículo no existe.");
-        else
-            return true;
+    public void deleteArticulo(int id) {
+        articuloRepository.deleteById(id);
     }
+
+
 
 
 

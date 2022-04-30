@@ -16,6 +16,7 @@ import javax.persistence.*;
 @ToString
 @EqualsAndHashCode
 @Entity
+@Table(name="articulos")
 public class Articulo {
 
     @Getter @Setter @Id

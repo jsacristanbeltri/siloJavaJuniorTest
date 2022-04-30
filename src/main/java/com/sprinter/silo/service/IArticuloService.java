@@ -8,9 +8,9 @@ import java.util.List;
  * Interfaz del servicio de Articulo.
  */
 public interface IArticuloService {
-    public boolean addArticulo(Articulo articulo);
+    public Articulo addArticulo(Articulo articulo);
     public List<Articulo> listar();
-    public Articulo listarArticuloId(int id);
-    public boolean editarArticulo(Articulo articulo);
-    public boolean eliminarArticulo (int id);
+    public Articulo findArticuloById(int id);
+    public Articulo updateArticulo(int id,Articulo articulo);
+    public void deleteArticulo (int id);
 }

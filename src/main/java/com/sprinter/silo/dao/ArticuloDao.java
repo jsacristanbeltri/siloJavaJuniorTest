@@ -1,6 +1,8 @@
 package com.sprinter.silo.dao;
 
 import com.sprinter.silo.models.Articulo;
+import com.sprinter.silo.repository.ArticuloRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -11,10 +13,14 @@ import java.util.List;
 
 @Repository
 @Transactional
+@RequiredArgsConstructor
 public class ArticuloDao implements IArticulo {
 
     @Autowired
     private JdbcTemplate template = new JdbcTemplate();
+
+    @Autowired
+    private final ArticuloRepository articuloRepository;
 
     /**
      * Función encargada de recibir un artículo y
@@ -47,11 +53,15 @@ public class ArticuloDao implements IArticulo {
      * base de datos. En el caso de que no existan artículos
      * devolverá una lista en estado null.
      */
-    @Override
+    /*@Override
     public List<Articulo> listar() {
         String sql = "select * from articulos";
         List<Articulo> articulos = template.query(sql,new BeanPropertyRowMapper<Articulo>(Articulo.class));
         return articulos;
+    }*/
+    @Override
+    public List<Articulo> listar(){
+        return (List<Articulo>)articuloRepository.findAll();
     }
 
     /**
