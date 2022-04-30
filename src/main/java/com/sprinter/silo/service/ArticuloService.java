@@ -1,14 +1,11 @@
 package com.sprinter.silo.service;
 
 import com.sprinter.silo.config.excepcions.NotFoundException;
-import com.sprinter.silo.dao.ArticuloDao;
-import com.sprinter.silo.dao.IArticulo;
 import com.sprinter.silo.models.Articulo;
 import com.sprinter.silo.repository.ArticuloRepository;
 import com.sprinter.silo.utils.Utils;
 import java.util.Objects;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
