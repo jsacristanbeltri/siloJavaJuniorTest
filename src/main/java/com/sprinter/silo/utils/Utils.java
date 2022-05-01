@@ -22,12 +22,12 @@ public class Utils {
         if(articulo.getImporte() <= 0 || esNumero(""+articulo.getImporte())){
             throw new BadRequestException("Importe inválido");
         }
-        if(articulo.getColor() == null || articulo.getColor().isEmpty()){
+        /*if(articulo.getColor() == null || articulo.getColor().isEmpty()){
             throw new BadRequestException("Color inválido");
         }
         if(articulo.getTalla() == null || articulo.getTalla().isEmpty()){
             throw new BadRequestException("Talla inválida");
-        }
+        }*/
     }
 
     /**

@@ -14,8 +14,4 @@ public class ArticuloDto implements Serializable {
     private String ean;
     private String nombre;
     private double importe;
-    private String talla;
-    private String color;
-
-
 }
