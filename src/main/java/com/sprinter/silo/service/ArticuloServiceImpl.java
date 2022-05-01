@@ -1,16 +1,19 @@
 package com.sprinter.silo.service;
 
 import com.sprinter.silo.config.excepcions.NotFoundException;
+import com.sprinter.silo.dtos.ArticuloDto;
 import com.sprinter.silo.models.Articulo;
 import com.sprinter.silo.repository.ArticuloRepository;
 import com.sprinter.silo.utils.Utils;
 import java.util.Objects;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * Servicios de artículo.
@@ -22,19 +25,22 @@ public class ArticuloServiceImpl implements ArticuloService {
     @Autowired
     private final ArticuloRepository articuloRepository;
 
+    @Autowired
+    private ModelMapper modelMapper;
     /**
      * Función encargada de recibir un artículo y
      * llamar a la funcion del repositorio (dao) para
      * realizar la inserción en base de datos.
-     * @param articulo objeto artículo para insertar en db.
+     * @param articuloRequest objeto artículo para insertar en db.
      * @return devuelve un booleano true si ha ido correcto
      * y false si ha fallado algo.
      */
 
     @Override
-    public Articulo addArticulo(Articulo articulo) {
+    public ArticuloDto create(ArticuloDto articuloRequest) {
+        Articulo articulo = convertToEntity(articuloRequest);
         Utils.comprobarArticulo(articulo);
-        return articuloRepository.save(articulo);
+        return convertToDto(articuloRepository.save(articulo));
     }
 
     /**
@@ -46,11 +52,12 @@ public class ArticuloServiceImpl implements ArticuloService {
      * en la base de datos.
      */
     @Override
-    public List<Articulo> listar() {
+    public List<ArticuloDto> findAll() {
         List<Articulo> articulos = articuloRepository.findAll();
         if(articulos.isEmpty())
             throw new NotFoundException("No existen artículos en la base de datos");
-        return articulos;
+        return articulos.stream().map(articulo -> modelMapper.map(articulo,ArticuloDto.class))
+                .collect(Collectors.toList());
     }
 
     /**
@@ -62,12 +69,13 @@ public class ArticuloServiceImpl implements ArticuloService {
      */
 
     @Override
-    public Articulo findArticuloById(int id) {
+    public ArticuloDto findById(int id) {
         if(Utils.esNumero(""+id)){
             Optional<Articulo> articuloResponse = articuloRepository.findById(id);
             Articulo articulo = articuloResponse.get();
+            ArticuloDto articuloDtoResponse = convertToDto(articulo);
 
-            return articulo;
+            return articuloDtoResponse;
         }
         else
             return null;
@@ -77,50 +85,40 @@ public class ArticuloServiceImpl implements ArticuloService {
     /**
      * Función encargada de editar un artículo
      * existente en la base de datos.
-     * @param articuloRequest recibe un objeto articulo que en el
+     * @param id identificador del articulo a actualziar
+     * @param articuloDtoRequest recibe un objeto articulo que en el
      * caso de que exista en la base de datos, sustituirá
      * el objeto artículo de la base de datos.
      * @return Devuelve el articulo actualizado
      */
 
     @Override
-    public Articulo updateArticulo(int id,Articulo articuloRequest) {
-        Utils.comprobarArticulo(articuloRequest);
+    public ArticuloDto update(int id,ArticuloDto articuloDtoRequest) {
         Optional<Articulo> articuloResponse = articuloRepository.findById(id);
         Articulo articulo = articuloResponse.get();
+        Utils.comprobarArticulo(articulo);
         if(articulo==null)
             throw new NotFoundException("Artículo no existe.");
 
-        if(Objects.nonNull(articuloRequest.getEan())
-            && !"".equalsIgnoreCase(articuloRequest.getEan())
+        if(Objects.nonNull(articuloDtoRequest.getEan())
+            && !"".equalsIgnoreCase(articuloDtoRequest.getEan())
         ){
-            articulo.setEan(articuloRequest.getEan());
+            articulo.setEan(articuloDtoRequest.getEan());
         }
 
-        if(Objects.nonNull(articuloRequest.getNombre())
-                && !"".equalsIgnoreCase(articuloRequest.getNombre())
+        if(Objects.nonNull(articuloDtoRequest.getNombre())
+                && !"".equalsIgnoreCase(articuloDtoRequest.getNombre())
         ){
-            articulo.setNombre(articuloRequest.getNombre());
+            articulo.setNombre(articuloDtoRequest.getNombre());
         }
 
-        if(Objects.nonNull(articuloRequest.getImporte())
-                && articuloRequest.getImporte()>=0
+        if(Objects.nonNull(articuloDtoRequest.getImporte())
+                && articuloDtoRequest.getImporte()>=0
         ){
-            articulo.setImporte(articuloRequest.getImporte());
+            articulo.setImporte(articuloDtoRequest.getImporte());
         }
 
-        if(Objects.nonNull(articuloRequest.getTalla())
-                && !"".equalsIgnoreCase(articuloRequest.getTalla())
-        ){
-            articulo.setTalla(articuloRequest.getTalla());
-        }
-        if(Objects.nonNull(articuloRequest.getColor())
-                && !"".equalsIgnoreCase(articuloRequest.getColor())
-        ){
-            articulo.setColor(articuloRequest.getColor());
-        }
-
-        return articuloRepository.save(articulo);
+        return convertToDto(articuloRepository.save(articulo));
     }
 
     /**
@@ -130,13 +128,21 @@ public class ArticuloServiceImpl implements ArticuloService {
      */
 
     @Override
-    public void deleteArticulo(int id) {
+    public void delete(int id) {
         articuloRepository.deleteById(id);
     }
 
 
 
+    private ArticuloDto convertToDto (Articulo articuloRequest){
+        ArticuloDto articuloDto = modelMapper.map(articuloRequest,ArticuloDto.class);
+        return articuloDto;
+    }
 
+    private Articulo convertToEntity (ArticuloDto articuloDtoRequest){
+        Articulo articulo = modelMapper.map(articuloDtoRequest,Articulo.class);
+        return articulo;
+    }
 
 }
 
