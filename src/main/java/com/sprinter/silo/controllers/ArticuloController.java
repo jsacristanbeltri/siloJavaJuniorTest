@@ -1,20 +1,24 @@
 package com.sprinter.silo.controllers;
 
+import com.sprinter.silo.dtos.ArticuloDto;
 import com.sprinter.silo.models.Articulo;
-import com.sprinter.silo.service.ArticuloService;
-import com.sprinter.silo.service.IArticuloService;
+import com.sprinter.silo.service.ArticuloServiceImpl;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @RestController
 public class ArticuloController {
 
     @Autowired
-    private ArticuloService service;
+    private ArticuloServiceImpl service;
+
+    @Autowired
+    private ModelMapper modelMapper;
 
     //----------------------- Respuestas Añadir articulos ------------
 
@@ -43,9 +47,10 @@ public class ArticuloController {
      * datos o si no existe ninguno revuleve el listado sin inicializar.
      */
     @RequestMapping (value = "api/list", method = RequestMethod.GET)
-    public List<Articulo> mostrarArticulos(){
-        List<Articulo> articulos = service.listar();
-        return articulos;
+    public List<ArticuloDto> mostrarArticulos(){
+        //List<Articulo> articulos = service.listar();
+        return service.listar().stream().map(articulo -> modelMapper.map(articulo,ArticuloDto.class))
+                .collect(Collectors.toList());
     }
 
     /**
