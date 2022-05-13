@@ -1,9 +1,14 @@
 package com.sprinter.silo.utils;
 
 import com.sprinter.silo.config.excepcions.BadRequestException;
+import com.sprinter.silo.dtos.ArticuloDto;
 import com.sprinter.silo.models.Articulo;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+
 
 public class Utils {
+
 
     /**
      * Función encargada de comprobar todos los atributos
@@ -44,4 +49,6 @@ public class Utils {
             return false;
         }
     }
+
+
 }
