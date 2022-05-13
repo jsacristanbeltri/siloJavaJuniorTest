@@ -2,11 +2,13 @@ package com.sprinter.silo.service;
 
 import com.sprinter.silo.config.excepcions.NotFoundException;
 import com.sprinter.silo.dtos.ArticuloDto;
+import com.sprinter.silo.mappers.SiloMapper;
 import com.sprinter.silo.models.Articulo;
 import com.sprinter.silo.repository.ArticuloRepository;
 import com.sprinter.silo.utils.Utils;
 import java.util.Objects;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,10 +22,15 @@ import java.util.stream.Collectors;
  */
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class ArticuloServiceImpl implements ArticuloService {
 
     @Autowired
     private final ArticuloRepository articuloRepository;
+
+    //protected final SiloMapper<Articulo,ArticuloDto> mapper;
+    protected final SiloMapper mapper;
+
 
     @Autowired
     private ModelMapper modelMapper;
@@ -38,9 +45,9 @@ public class ArticuloServiceImpl implements ArticuloService {
 
     @Override
     public ArticuloDto create(ArticuloDto articuloRequest) {
-        Articulo articulo = convertToEntity(articuloRequest);
+        Articulo articulo = mapper.toEntity(articuloRequest);
         Utils.comprobarArticulo(articulo);
-        return convertToDto(articuloRepository.save(articulo));
+        return mapper.toDto(articuloRepository.save(articulo));
     }
 
     /**
@@ -54,10 +61,14 @@ public class ArticuloServiceImpl implements ArticuloService {
     @Override
     public List<ArticuloDto> findAll() {
         List<Articulo> articulos = articuloRepository.findAll();
-        if(articulos.isEmpty())
+        /*if(articulos.isEmpty())
             throw new NotFoundException("No existen artículos en la base de datos");
         return articulos.stream().map(articulo -> modelMapper.map(articulo,ArticuloDto.class))
-                .collect(Collectors.toList());
+                .collect(Collectors.toList());*/
+        log.info("entity 0: " + articulos.get(0).getNombre());
+        List<ArticuloDto> articulosDto = mapper.toDtos(articulos);
+//        log.info("Dto 0: " + articulosDto.get(0).getNombre());
+        return articulosDto;
     }
 
     /**
@@ -73,7 +84,7 @@ public class ArticuloServiceImpl implements ArticuloService {
         if(Utils.esNumero(""+id)){
             Optional<Articulo> articuloResponse = articuloRepository.findById(id);
             Articulo articulo = articuloResponse.get();
-            ArticuloDto articuloDtoResponse = convertToDto(articulo);
+            ArticuloDto articuloDtoResponse = mapper.toDto(articulo);
 
             return articuloDtoResponse;
         }
@@ -118,7 +129,7 @@ public class ArticuloServiceImpl implements ArticuloService {
             articulo.setImporte(articuloDtoRequest.getImporte());
         }
 
-        return convertToDto(articuloRepository.save(articulo));
+        return mapper.toDto(articuloRepository.save(articulo));
     }
 
     /**
@@ -134,7 +145,7 @@ public class ArticuloServiceImpl implements ArticuloService {
 
 
 
-    private ArticuloDto convertToDto (Articulo articuloRequest){
+    /*private ArticuloDto convertToDto (Articulo articuloRequest){
         ArticuloDto articuloDto = modelMapper.map(articuloRequest,ArticuloDto.class);
         return articuloDto;
     }
@@ -142,7 +153,7 @@ public class ArticuloServiceImpl implements ArticuloService {
     private Articulo convertToEntity (ArticuloDto articuloDtoRequest){
         Articulo articulo = modelMapper.map(articuloDtoRequest,Articulo.class);
         return articulo;
-    }
+    }*/
 
 }
 
