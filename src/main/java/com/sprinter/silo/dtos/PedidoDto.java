@@ -8,8 +8,7 @@ import lombok.Setter;
 import java.io.Serializable;
 import java.util.List;
 
-@Getter
-@Setter
+
 @Data
 public class PedidoDto implements Serializable {
     private int id;

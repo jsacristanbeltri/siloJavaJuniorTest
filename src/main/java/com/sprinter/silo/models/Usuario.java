@@ -4,12 +4,10 @@ import lombok.*;
 
 import javax.persistence.*;
 
-@Getter
-@Setter
-@ToString
-@EqualsAndHashCode
+
 @Entity
 @RequiredArgsConstructor
+@Data
 @Table(name="usuarios")
 public class Usuario {
 
