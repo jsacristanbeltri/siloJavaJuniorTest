@@ -1,24 +1,13 @@
 package com.sprinter.silo.mappers;
 
+import com.sprinter.silo.dtos.ArticuloDto;
+import com.sprinter.silo.models.Articulo;
+
 import java.util.List;
 
 
-public interface SiloMapper<E,DTO> {
-    DTO toDto(E entity);
-
-    /**
-     * To dtos list.
-     *
-     * @param entities the entities
-     * @return the list
-     */
-    List<DTO> toDtos(List<E> entities);
-
-    /**
-     * To entity e.
-     *
-     * @param dto the dto
-     * @return the e
-     */
-    E toEntity(DTO dto);
+public interface SiloMapper {
+   ArticuloDto toDto (Articulo articulo);
+   Articulo toEntity(ArticuloDto dto);
+   List<ArticuloDto> toDtos (List<Articulo> entities);
 }

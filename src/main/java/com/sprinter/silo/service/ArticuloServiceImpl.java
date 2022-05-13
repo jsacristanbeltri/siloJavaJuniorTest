@@ -28,7 +28,9 @@ public class ArticuloServiceImpl implements ArticuloService {
     @Autowired
     private final ArticuloRepository articuloRepository;
 
-    protected final SiloMapper<Articulo,ArticuloDto> mapper;
+    //protected final SiloMapper<Articulo,ArticuloDto> mapper;
+    protected final SiloMapper mapper;
+
 
     @Autowired
     private ModelMapper modelMapper;
@@ -63,8 +65,10 @@ public class ArticuloServiceImpl implements ArticuloService {
             throw new NotFoundException("No existen artículos en la base de datos");
         return articulos.stream().map(articulo -> modelMapper.map(articulo,ArticuloDto.class))
                 .collect(Collectors.toList());*/
-        log.info(articulos.get(0).getNombre());
-        return mapper.toDtos(articulos);
+        log.info("entity 0: " + articulos.get(0).getNombre());
+        List<ArticuloDto> articulosDto = mapper.toDtos(articulos);
+//        log.info("Dto 0: " + articulosDto.get(0).getNombre());
+        return articulosDto;
     }
 
     /**
