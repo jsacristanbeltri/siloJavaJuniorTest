@@ -9,7 +9,7 @@ import java.util.List;
 @Entity
 @RequiredArgsConstructor
 @Table(name="pedidos")
-public class Pedido {
+public class Pedido implements SiloEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

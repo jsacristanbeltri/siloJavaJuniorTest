@@ -31,9 +31,6 @@ public class ArticuloServiceImpl implements ArticuloService {
     //protected final SiloMapper<Articulo,ArticuloDto> mapper;
     protected final SiloMapper mapper;
 
-
-    @Autowired
-    private ModelMapper modelMapper;
     /**
      * Función encargada de recibir un artículo y
      * llamar a la funcion del repositorio (dao) para
@@ -45,8 +42,11 @@ public class ArticuloServiceImpl implements ArticuloService {
 
     @Override
     public ArticuloDto create(ArticuloDto articuloRequest) {
+        log.info("entra en create");
         Articulo articulo = mapper.toEntity(articuloRequest);
-        Utils.comprobarArticulo(articulo);
+        log.info("mapea ok");
+        //Utils.comprobarArticulo(articulo);
+
         return mapper.toDto(articuloRepository.save(articulo));
     }
 
@@ -65,9 +65,9 @@ public class ArticuloServiceImpl implements ArticuloService {
             throw new NotFoundException("No existen artículos en la base de datos");
         return articulos.stream().map(articulo -> modelMapper.map(articulo,ArticuloDto.class))
                 .collect(Collectors.toList());*/
-        log.info("entity 0: " + articulos.get(0).getNombre());
+        //log.info("entity 0: " + articulos.get(0).getNombre());
         List<ArticuloDto> articulosDto = mapper.toDtos(articulos);
-//        log.info("Dto 0: " + articulosDto.get(0).getNombre());
+        //log.info("Dto 0, color: " + articulosDto.get(0).getColor());
         return articulosDto;
     }
 

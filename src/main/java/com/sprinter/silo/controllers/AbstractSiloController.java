@@ -1,5 +1,7 @@
 package com.sprinter.silo.controllers;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.sprinter.silo.dtos.ArticuloDto;
 import com.sprinter.silo.service.SiloService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -31,10 +33,13 @@ public class AbstractSiloController<DTO> {
         return siloService.findById(id);
     }
 
+
     @PostMapping()
     @ResponseStatus(HttpStatus.OK)
-    public DTO create(final @RequestBody @Valid DTO dto){
-        return siloService.create(dto);
+    public void create(final @RequestBody @Valid DTO dto){
+        //log.info("entra en post");
+        log.info("dto name: "+ ((ArticuloDto)dto).getNombre());
+        //return siloService.create(dto);
     }
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)

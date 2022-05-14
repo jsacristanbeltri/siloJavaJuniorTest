@@ -9,7 +9,7 @@ import javax.persistence.*;
 @RequiredArgsConstructor
 @Data
 @Table(name="usuarios")
-public class Usuario {
+public class Usuario implements SiloEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
