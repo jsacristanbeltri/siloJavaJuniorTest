@@ -14,7 +14,7 @@ import javax.persistence.*;
 @Entity
 @RequiredArgsConstructor
 @Table(name="articulos")
-public class Articulo {
+public class Articulo implements SiloEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

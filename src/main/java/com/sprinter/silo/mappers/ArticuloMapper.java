@@ -14,8 +14,19 @@ public abstract class ArticuloMapper implements SiloMapper{
         articuloDto.setEan(articulo.getEan());
         articuloDto.setNombre(articulo.getNombre());
         articuloDto.setImporte(articulo.getImporte());
+        articuloDto.setColor(articulo.getColor());
+        articuloDto.setTalla(articulo.getTalla());
         return articuloDto;
     }
-    public abstract Articulo toEntity(ArticuloDto dto);
+    public Articulo toEntity(ArticuloDto dto){
+        Articulo articulo = new Articulo();
+        articulo.setId(dto.getId());
+        articulo.setEan(dto.getEan());
+        articulo.setNombre(dto.getNombre());
+        articulo.setColor(dto.getColor());
+        articulo.setTalla(dto.getTalla());
+
+        return articulo;
+    }
     public abstract List<ArticuloDto> toDtos(List<Articulo> entities);
 }

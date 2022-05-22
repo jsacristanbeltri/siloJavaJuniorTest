@@ -24,12 +24,6 @@ import org.springframework.context.annotation.Bean;
 @Slf4j
 @SpringBootApplication
 public class SiloApplication {
-
-	@Bean
-	public ModelMapper modelMapper() {
-		return new ModelMapper();
-	}
-
 	public static void main(String[] args) {
 		SpringApplication.run(SiloApplication.class, args);
 	}

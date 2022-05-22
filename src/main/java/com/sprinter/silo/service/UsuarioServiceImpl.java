@@ -1,5 +1,7 @@
 package com.sprinter.silo.service;
 
+import com.sprinter.silo.dtos.ArticuloDto;
+import com.sprinter.silo.dtos.UsuarioDto;
 import com.sprinter.silo.models.Usuario;
 import com.sprinter.silo.repository.ArticuloRepository;
 import com.sprinter.silo.repository.UsuarioRepository;
@@ -16,28 +18,31 @@ public class UsuarioServiceImpl implements UsuarioService{
     @Autowired
     private final UsuarioRepository usuarioRepository;
 
+
     @Override
-    public Usuario addUsuario(Usuario usuario) {
+    public List<UsuarioDto> findAll() {
         return null;
     }
 
     @Override
-    public List<Usuario> listarUsuarios() {
+    public UsuarioDto findById(int id) {
         return null;
     }
 
     @Override
-    public Usuario getUsuarioById(int id) {
+    public UsuarioDto create(UsuarioDto orderDto) {
+        return null;
+    }
+
+
+    @Override
+    public UsuarioDto update(int id, UsuarioDto orderDto) {
         return null;
     }
 
     @Override
-    public Usuario updateUsuario(int id, Usuario usuario) {
-        return null;
-    }
-
-    @Override
-    public void deleteUsuario(int id) {
+    public void delete(int id) {
 
     }
 }
+

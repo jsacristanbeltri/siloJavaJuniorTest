@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/articulo")
-public class ArticuloController extends AbstractSiloController {
+public class ArticuloController extends AbstractSiloController<ArticuloDto> {
 
     @Autowired
     public ArticuloController(ArticuloService service) {
