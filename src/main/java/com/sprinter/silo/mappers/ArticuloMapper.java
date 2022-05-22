@@ -7,7 +7,7 @@ import org.mapstruct.Mapper;
 import java.util.List;
 
 @Mapper(componentModel = "spring")
-public abstract class ArticuloMapper implements SiloMapper{
+public abstract class ArticuloMapper implements SiloMapper<Articulo,ArticuloDto>{
     public ArticuloDto toDto(Articulo articulo){
         ArticuloDto articuloDto = new ArticuloDto();
         articuloDto.setId(articulo.getId());

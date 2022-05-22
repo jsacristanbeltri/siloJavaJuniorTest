@@ -2,6 +2,7 @@ package com.sprinter.silo.service;
 
 import com.sprinter.silo.config.excepcions.NotFoundException;
 import com.sprinter.silo.dtos.ArticuloDto;
+import com.sprinter.silo.mappers.ArticuloMapper;
 import com.sprinter.silo.mappers.SiloMapper;
 import com.sprinter.silo.models.Articulo;
 import com.sprinter.silo.repository.ArticuloRepository;
@@ -10,6 +11,7 @@ import java.util.Objects;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,15 +21,22 @@ import java.util.Optional;
  * Servicios de artículo.
  */
 @Service
-@RequiredArgsConstructor
 @Slf4j
-public class ArticuloServiceImpl implements ArticuloService {
+public class ArticuloServiceImpl extends AbstractSiloService<Articulo, ArticuloDto> implements ArticuloService
+{
 
-    @Autowired
-    private final ArticuloRepository articuloRepository;
+    /*@Autowired
+    private final ArticuloRepository articuloRepository;*/
 
     //protected final SiloMapper<Articulo,ArticuloDto> mapper;
-    protected final SiloMapper mapper;
+    //protected final SiloMapper mapper;
+
+    @Autowired
+    public ArticuloServiceImpl(ArticuloRepository repository, ArticuloMapper mapper) {
+        super(repository, mapper);
+    }
+
+
 
     /**
      * Función encargada de recibir un artículo y
@@ -40,12 +49,12 @@ public class ArticuloServiceImpl implements ArticuloService {
 
     @Override
     public ArticuloDto create(ArticuloDto articuloRequest) {
-        log.info("entra en create");
+       /* log.info("entra en create");
         Articulo articulo = mapper.toEntity(articuloRequest);
         log.info("mapea ok");
-        //Utils.comprobarArticulo(articulo);
+        //Utils.comprobarArticulo(articulo);*/
 
-        return mapper.toDto(articuloRepository.save(articulo));
+        return mapper.toDto(repository.save(mapper.toEntity(articuloRequest)));
     }
 
     /**
@@ -56,18 +65,7 @@ public class ArticuloServiceImpl implements ArticuloService {
      * saltará una excepcion indicando que no hay artículos
      * en la base de datos.
      */
-    @Override
-    public List<ArticuloDto> findAll() {
-        List<Articulo> articulos = articuloRepository.findAll();
-        /*if(articulos.isEmpty())
-            throw new NotFoundException("No existen artículos en la base de datos");
-        return articulos.stream().map(articulo -> modelMapper.map(articulo,ArticuloDto.class))
-                .collect(Collectors.toList());*/
-        //log.info("entity 0: " + articulos.get(0).getNombre());
-        List<ArticuloDto> articulosDto = mapper.toDtos(articulos);
-        //log.info("Dto 0, color: " + articulosDto.get(0).getColor());
-        return articulosDto;
-    }
+
 
     /**
      * Función encargada de buscar un artículo en la base
@@ -77,19 +75,7 @@ public class ArticuloServiceImpl implements ArticuloService {
      * que no lo encuentre, salta una excepción.
      */
 
-    @Override
-    public ArticuloDto findById(int id) {
-        if(Utils.esNumero(""+id)){
-            Optional<Articulo> articuloResponse = articuloRepository.findById(id);
-            Articulo articulo = articuloResponse.get();
-            ArticuloDto articuloDtoResponse = mapper.toDto(articulo);
 
-            return articuloDtoResponse;
-        }
-        else
-            return null;
-
-    }
 
     /**
      * Función encargada de editar un artículo
@@ -103,9 +89,9 @@ public class ArticuloServiceImpl implements ArticuloService {
 
     @Override
     public ArticuloDto update(int id, ArticuloDto articuloDtoRequest) {
-        Optional<Articulo> articuloResponse = articuloRepository.findById(id);
+        Optional<Articulo> articuloResponse = repository.findById(id);
         Articulo articulo = articuloResponse.get();
-        Utils.comprobarArticulo(articulo);
+        /*Utils.comprobarArticulo(articulo);
         if(articulo==null)
             throw new NotFoundException("Artículo no existe.");
 
@@ -125,9 +111,9 @@ public class ArticuloServiceImpl implements ArticuloService {
                 && articuloDtoRequest.getImporte()>=0
         ){
             articulo.setImporte(articuloDtoRequest.getImporte());
-        }
+        }*/
 
-        return mapper.toDto(articuloRepository.save(articulo));
+        return mapper.toDto(repository.save(mapper.toEntity(articuloDtoRequest)));
     }
 
     /**
@@ -136,10 +122,6 @@ public class ArticuloServiceImpl implements ArticuloService {
      * @param id Recibe el id del artículo a borrar
      */
 
-    @Override
-    public void delete(int id) {
-        articuloRepository.deleteById(id);
-    }
 
 
 

@@ -27,9 +27,6 @@ public class AbstractSiloController<DTO> {
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    /*public ResponseEntity<DTO> find (final @PathVariable int id){
-        return ResponseEntity.ok(siloService.findById(id));
-    }*/
     public DTO find (final @PathVariable int id){
         return siloService.findById(id);
     }

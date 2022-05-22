@@ -6,8 +6,8 @@ import com.sprinter.silo.models.Articulo;
 import java.util.List;
 
 
-public interface SiloMapper {
-   ArticuloDto toDto (Articulo articulo);
-   Articulo toEntity(ArticuloDto dto);
-   List<ArticuloDto> toDtos (List<Articulo> entities);
+public interface SiloMapper<E,DTO> {
+   DTO toDto (E entity);
+   E toEntity(DTO dto);
+   List<DTO> toDtos (List<E> entities);
 }
