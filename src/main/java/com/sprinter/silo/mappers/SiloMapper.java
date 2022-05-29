@@ -10,4 +10,6 @@ public interface SiloMapper<E,DTO> {
    DTO toDto (E entity);
    E toEntity(DTO dto);
    List<DTO> toDtos (List<E> entities);
+   /*E pedidoToEntity (DTO dto);
+   DTO converToDto (E entity);*/
 }

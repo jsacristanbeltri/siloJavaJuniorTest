@@ -1,40 +1,44 @@
-2022-05-22 20:11:49,631 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting SiloApplication using Java 11.0.2 on TALLER with PID 14464 (C:\Users\Nuria\Documents\GitHub\siloJavaJuniorTest\target\classes started by Nuria in C:\Users\Nuria\Documents\GitHub\siloJavaJuniorTest)
-2022-05-22 20:11:49,631 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
-2022-05-22 20:11:49,725 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-05-22 20:11:49,725 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-05-22 20:11:50,475 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
-2022-05-22 20:11:50,568 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 73 ms. Found 3 JPA repository interfaces.
-2022-05-22 20:11:51,193 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
-2022-05-22 20:11:51,209 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
-2022-05-22 20:11:51,209 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
-2022-05-22 20:11:51,209 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.39]
-2022-05-22 20:11:51,303 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
-2022-05-22 20:11:51,303 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1578 ms
-2022-05-22 20:11:51,350 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
-2022-05-22 20:11:51,490 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
-2022-05-22 20:11:51,553 INFO org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration [restartedMain] H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
-2022-05-22 20:11:51,615 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
-2022-05-22 20:11:51,678 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
-2022-05-22 20:11:51,725 INFO org.hibernate.jpa.internal.util.LogHelper [task-1] HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-05-22 20:11:51,787 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-05-22 20:11:51,803 INFO org.hibernate.Version [task-1] HHH000412: Hibernate ORM core version 5.4.23.Final
-2022-05-22 20:11:51,975 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [task-1] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-05-22 20:11:52,100 INFO org.hibernate.dialect.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2022-05-22 20:11:52,115 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
-2022-05-22 20:11:52,146 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
-2022-05-22 20:11:52,146 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositories…
-2022-05-22 20:11:52,803 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-05-22 20:11:52,818 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [task-1] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-05-22 20:11:53,006 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
-2022-05-22 20:11:53,021 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started SiloApplication in 3.953 seconds (JVM running for 4.57)
-2022-05-22 20:13:40,675 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-05-22 20:13:40,675 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
-2022-05-22 20:13:40,677 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 0 ms
-2022-05-22 20:13:50,165 INFO com.sprinter.silo.controllers.AbstractSiloController [http-nio-8080-exec-3] {id=4, ean=0000004, nombre=Zapatos3, importe=41, talla=S, color=Rojo}
-2022-05-22 20:13:50,175 ERROR org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-3] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.ClassCastException: class java.util.LinkedHashMap cannot be cast to class com.sprinter.silo.dtos.ArticuloDto (java.util.LinkedHashMap is in module java.base of loader 'bootstrap'; com.sprinter.silo.dtos.ArticuloDto is in unnamed module of loader org.springframework.boot.devtools.restart.classloader.RestartClassLoader @13f6b9a5)] with root cause
-java.lang.ClassCastException: class java.util.LinkedHashMap cannot be cast to class com.sprinter.silo.dtos.ArticuloDto (java.util.LinkedHashMap is in module java.base of loader 'bootstrap'; com.sprinter.silo.dtos.ArticuloDto is in unnamed module of loader org.springframework.boot.devtools.restart.classloader.RestartClassLoader @13f6b9a5)
-	at com.sprinter.silo.service.ArticuloServiceImpl.create(ArticuloServiceImpl.java:21)
-	at com.sprinter.silo.controllers.AbstractSiloController.create(AbstractSiloController.java:55)
+2022-05-29 10:55:01,113 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting SiloApplication using Java 11.0.2 on TALLER with PID 20200 (C:\Users\Nuria\Documents\GitHub\siloJavaJuniorTest\target\classes started by Nuria in C:\Users\Nuria\Documents\GitHub\siloJavaJuniorTest)
+2022-05-29 10:55:01,113 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
+2022-05-29 10:55:01,207 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-05-29 10:55:01,207 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-05-29 10:55:01,894 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+2022-05-29 10:55:01,973 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 78 ms. Found 4 JPA repository interfaces.
+2022-05-29 10:55:02,613 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2022-05-29 10:55:02,629 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
+2022-05-29 10:55:02,629 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
+2022-05-29 10:55:02,629 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-05-29 10:55:02,723 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
+2022-05-29 10:55:02,723 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1516 ms
+2022-05-29 10:55:02,769 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2022-05-29 10:55:02,894 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2022-05-29 10:55:02,957 INFO org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration [restartedMain] H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2022-05-29 10:55:03,004 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2022-05-29 10:55:03,066 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
+2022-05-29 10:55:03,113 INFO org.hibernate.jpa.internal.util.LogHelper [task-1] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-05-29 10:55:03,191 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-05-29 10:55:03,207 INFO org.hibernate.Version [task-1] HHH000412: Hibernate ORM core version 5.4.23.Final
+2022-05-29 10:55:03,379 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [task-1] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-05-29 10:55:03,504 INFO org.hibernate.dialect.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-05-29 10:55:03,504 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
+2022-05-29 10:55:03,535 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2022-05-29 10:55:03,535 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositories…
+2022-05-29 10:55:04,144 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-05-29 10:55:04,144 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [task-1] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-05-29 10:55:04,332 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
+2022-05-29 10:55:04,348 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started SiloApplication in 3.75 seconds (JVM running for 4.41)
+2022-05-29 10:55:09,927 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-05-29 10:55:09,927 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2022-05-29 10:55:09,929 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 1 ms
+2022-05-29 10:55:10,060 INFO com.sprinter.silo.service.PedidoServiceImpl [http-nio-8080-exec-1] Orden nº: 1
+2022-05-29 10:55:10,061 INFO com.sprinter.silo.service.PedidoServiceImpl [http-nio-8080-exec-1] DTO: Lineas totales pedido: 1
+2022-05-29 10:55:10,062 INFO com.sprinter.silo.service.PedidoServiceImpl [http-nio-8080-exec-1] DTO: linea 0, id articulo: 1
+2022-05-29 10:55:10,063 INFO com.sprinter.silo.service.PedidoServiceImpl [http-nio-8080-exec-1] DTO: linea 0, nombre articulo: Zapatos4
+2022-05-29 10:55:10,079 ERROR org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-1] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.NullPointerException] with root cause
+java.lang.NullPointerException: null
+	at com.sprinter.silo.service.PedidoServiceImpl.create(PedidoServiceImpl.java:35)
+	at com.sprinter.silo.service.PedidoServiceImpl.create(PedidoServiceImpl.java:19)
+	at com.sprinter.silo.controllers.AbstractSiloController.create(AbstractSiloController.java:37)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -85,102 +89,3 @@ java.lang.ClassCastException: class java.util.LinkedHashMap cannot be cast to cl
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:834)
-2022-05-22 20:30:59,482 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting SiloApplication using Java 11.0.2 on TALLER with PID 18328 (C:\Users\Nuria\Documents\GitHub\siloJavaJuniorTest\target\classes started by Nuria in C:\Users\Nuria\Documents\GitHub\siloJavaJuniorTest)
-2022-05-22 20:30:59,482 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
-2022-05-22 20:30:59,560 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-05-22 20:30:59,560 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-05-22 20:31:00,264 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
-2022-05-22 20:31:00,342 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 72 ms. Found 3 JPA repository interfaces.
-2022-05-22 20:31:01,014 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
-2022-05-22 20:31:01,029 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
-2022-05-22 20:31:01,029 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
-2022-05-22 20:31:01,029 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.39]
-2022-05-22 20:31:01,154 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
-2022-05-22 20:31:01,170 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1610 ms
-2022-05-22 20:31:01,248 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
-2022-05-22 20:31:01,373 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
-2022-05-22 20:31:01,435 INFO org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration [restartedMain] H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
-2022-05-22 20:31:01,647 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
-2022-05-22 20:31:01,835 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
-2022-05-22 20:31:02,050 INFO org.hibernate.jpa.internal.util.LogHelper [task-1] HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-05-22 20:31:02,166 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-05-22 20:31:02,190 INFO org.hibernate.Version [task-1] HHH000412: Hibernate ORM core version 5.4.23.Final
-2022-05-22 20:31:02,515 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [task-1] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-05-22 20:31:02,686 INFO org.hibernate.dialect.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2022-05-22 20:31:02,713 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
-2022-05-22 20:31:02,748 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
-2022-05-22 20:31:02,751 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositories…
-2022-05-22 20:31:03,416 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-05-22 20:31:03,416 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [task-1] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-05-22 20:31:03,612 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
-2022-05-22 20:31:03,624 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started SiloApplication in 4.733 seconds (JVM running for 5.277)
-2022-05-22 20:31:07,883 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-05-22 20:31:07,884 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
-2022-05-22 20:31:07,885 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-1] Completed initialization in 1 ms
-2022-05-22 20:31:07,984 INFO com.sprinter.silo.service.ArticuloServiceImpl [http-nio-8080-exec-1] entra en create
-2022-05-22 20:31:07,984 INFO com.sprinter.silo.service.ArticuloServiceImpl [http-nio-8080-exec-1] mapea ok
-2022-05-22 22:11:12,787 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting SiloApplication using Java 11.0.2 on TALLER with PID 15144 (C:\Users\Nuria\Documents\GitHub\siloJavaJuniorTest\target\classes started by Nuria in C:\Users\Nuria\Documents\GitHub\siloJavaJuniorTest)
-2022-05-22 22:11:12,787 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
-2022-05-22 22:11:12,850 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-05-22 22:11:12,850 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-05-22 22:11:13,475 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
-2022-05-22 22:11:13,553 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 71 ms. Found 3 JPA repository interfaces.
-2022-05-22 22:11:14,162 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
-2022-05-22 22:11:14,178 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
-2022-05-22 22:11:14,178 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
-2022-05-22 22:11:14,178 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.39]
-2022-05-22 22:11:14,272 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
-2022-05-22 22:11:14,272 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1422 ms
-2022-05-22 22:11:14,319 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
-2022-05-22 22:11:14,444 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
-2022-05-22 22:11:14,491 INFO org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration [restartedMain] H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
-2022-05-22 22:11:14,537 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
-2022-05-22 22:11:14,616 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
-2022-05-22 22:11:14,647 INFO org.hibernate.jpa.internal.util.LogHelper [task-1] HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-05-22 22:11:14,709 INFO org.hibernate.Version [task-1] HHH000412: Hibernate ORM core version 5.4.23.Final
-2022-05-22 22:11:14,709 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-05-22 22:11:14,834 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [task-1] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-05-22 22:11:14,959 INFO org.hibernate.dialect.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2022-05-22 22:11:15,037 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
-2022-05-22 22:11:15,053 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
-2022-05-22 22:11:15,053 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositories…
-2022-05-22 22:11:15,706 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-05-22 22:11:15,706 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [task-1] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-05-22 22:11:15,932 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
-2022-05-22 22:11:15,948 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started SiloApplication in 3.593 seconds (JVM running for 4.12)
-2022-05-22 22:11:20,446 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-05-22 22:11:20,447 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
-2022-05-22 22:11:20,448 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 1 ms
-2022-05-22 22:12:38,002 WARN org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver [http-nio-8080-exec-10] Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "findById"]
-2022-05-22 22:16:26,258 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Starting SiloApplication using Java 11.0.2 on TALLER with PID 13268 (C:\Users\Nuria\Documents\GitHub\siloJavaJuniorTest\target\classes started by Nuria in C:\Users\Nuria\Documents\GitHub\siloJavaJuniorTest)
-2022-05-22 22:16:26,258 INFO org.springframework.boot.SpringApplication [restartedMain] No active profile set, falling back to default profiles: default
-2022-05-22 22:16:26,305 INFO org.springframework.boot.logging.DeferredLog [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-05-22 22:16:26,320 INFO org.springframework.boot.logging.DeferredLog [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-05-22 22:16:26,977 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
-2022-05-22 22:16:27,039 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 65 ms. Found 3 JPA repository interfaces.
-2022-05-22 22:16:27,602 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
-2022-05-22 22:16:27,602 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing ProtocolHandler ["http-nio-8080"]
-2022-05-22 22:16:27,602 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting service [Tomcat]
-2022-05-22 22:16:27,602 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.39]
-2022-05-22 22:16:27,695 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Initializing Spring embedded WebApplicationContext
-2022-05-22 22:16:27,695 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1375 ms
-2022-05-22 22:16:27,742 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
-2022-05-22 22:16:27,836 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
-2022-05-22 22:16:27,898 INFO org.springframework.boot.autoconfigure.h2.H2ConsoleAutoConfiguration [restartedMain] H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
-2022-05-22 22:16:27,945 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
-2022-05-22 22:16:28,023 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [restartedMain] Initializing ExecutorService 'applicationTaskExecutor'
-2022-05-22 22:16:28,070 INFO org.hibernate.jpa.internal.util.LogHelper [task-1] HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-05-22 22:16:28,117 INFO org.hibernate.Version [task-1] HHH000412: Hibernate ORM core version 5.4.23.Final
-2022-05-22 22:16:28,133 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-05-22 22:16:28,258 INFO org.hibernate.annotations.common.reflection.java.JavaReflectionManager [task-1] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-05-22 22:16:28,383 INFO org.hibernate.dialect.Dialect [task-1] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2022-05-22 22:16:28,477 INFO org.apache.juli.logging.DirectJDKLog [restartedMain] Starting ProtocolHandler ["http-nio-8080"]
-2022-05-22 22:16:28,492 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
-2022-05-22 22:16:28,492 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Triggering deferred initialization of Spring Data repositories…
-2022-05-22 22:16:29,008 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [task-1] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-05-22 22:16:29,008 INFO org.springframework.orm.jpa.AbstractEntityManagerFactoryBean [task-1] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-05-22 22:16:29,180 INFO org.springframework.data.repository.config.DeferredRepositoryInitializationListener [restartedMain] Spring Data repositories initialized!
-2022-05-22 22:16:29,180 INFO org.springframework.boot.StartupInfoLogger [restartedMain] Started SiloApplication in 3.398 seconds (JVM running for 3.942)
-2022-05-22 22:16:33,507 INFO org.apache.juli.logging.DirectJDKLog [http-nio-8080-exec-2] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-05-22 22:16:33,508 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
-2022-05-22 22:16:33,509 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 1 ms

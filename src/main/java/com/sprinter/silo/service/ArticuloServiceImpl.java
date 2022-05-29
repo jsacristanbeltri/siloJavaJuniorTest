@@ -89,8 +89,9 @@ public class ArticuloServiceImpl extends AbstractSiloService<Articulo, ArticuloD
 
     @Override
     public ArticuloDto update(int id, ArticuloDto articuloDtoRequest) {
-        Optional<Articulo> articuloResponse = repository.findById(id);
-        Articulo articulo = articuloResponse.get();
+        Articulo articulo = get(id);
+        articulo.setId(id);
+
         /*Utils.comprobarArticulo(articulo);
         if(articulo==null)
             throw new NotFoundException("Artículo no existe.");

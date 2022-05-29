@@ -35,5 +35,4 @@ public class Articulo implements SiloEntity{
 
     @Column (name = "color")
     private String color;
-
 }

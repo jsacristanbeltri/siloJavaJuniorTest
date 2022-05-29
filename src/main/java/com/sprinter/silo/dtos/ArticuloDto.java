@@ -1,5 +1,6 @@
 package com.sprinter.silo.dtos;
 
+import com.sprinter.silo.models.Pedido;
 import lombok.*;
 
 import java.io.Serializable;

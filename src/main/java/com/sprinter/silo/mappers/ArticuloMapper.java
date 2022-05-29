@@ -2,12 +2,19 @@ package com.sprinter.silo.mappers;
 
 import com.sprinter.silo.dtos.ArticuloDto;
 import com.sprinter.silo.models.Articulo;
+import lombok.extern.slf4j.Slf4j;
 import org.mapstruct.Mapper;
 
 import java.util.List;
 
+@Slf4j
 @Mapper(componentModel = "spring")
 public abstract class ArticuloMapper implements SiloMapper<Articulo,ArticuloDto>{
+
+    //public abstract ArticuloDto toDto(Articulo articulo);
+    //public abstract Articulo toEntity(ArticuloDto dto);
+    public abstract List<ArticuloDto> toDtos(List<Articulo> entities);
+
     public ArticuloDto toDto(Articulo articulo){
         ArticuloDto articuloDto = new ArticuloDto();
         articuloDto.setId(articulo.getId());
@@ -18,6 +25,8 @@ public abstract class ArticuloMapper implements SiloMapper<Articulo,ArticuloDto>
         articuloDto.setTalla(articulo.getTalla());
         return articuloDto;
     }
+
+
     public Articulo toEntity(ArticuloDto dto){
         Articulo articulo = new Articulo();
         articulo.setId(dto.getId());
@@ -28,5 +37,4 @@ public abstract class ArticuloMapper implements SiloMapper<Articulo,ArticuloDto>
 
         return articulo;
     }
-    public abstract List<ArticuloDto> toDtos(List<Articulo> entities);
 }

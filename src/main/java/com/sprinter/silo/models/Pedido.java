@@ -16,5 +16,6 @@ public class Pedido implements SiloEntity {
     private int id;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
-    private List<Articulo> listaArticulos;
+    @JoinColumn(name = "pedidolinea_id")
+    private List<PedidoLinea> lineasPedido;
 }
